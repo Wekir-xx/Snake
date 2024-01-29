@@ -126,10 +126,7 @@ void Snake::paintEvent(QPaintEvent* event)
     else
     {
         killTimer(timerID);
-
         painter->setRenderHint(QPainter::Antialiasing);
-        qreal width = this->width();
-        qreal heigth = this->height();
 
         QString text("Game Over");
         QFont font("Times New Roman", 35);
@@ -138,7 +135,7 @@ void Snake::paintEvent(QPaintEvent* event)
         painter->setPen(QPen(QColor("red")));
         painter->setBrush(QBrush(QColor("white")));
         QPainterPath textpath;
-        textpath.addText(width / 2 - text_width / 2, heigth / 2, font, text);
+        textpath.addText(this->width() / 2 - text_width / 2, this->height() / 2, font, text);
         painter->drawPath(textpath);
     }
     delete painter;
